@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Column Document with PagedJS (A4)</title>
+    <link rel="stylesheet" href='https://cracku.in/static/assets/plugins/katex/katex.min.css'>
+    <script src='https://cracku.in/static/assets/plugins/katex/katex.min.js'></script>
+    <script src='https://cracku.in/static/assets/plugins/katex/contrib/auto-render.js'></script>
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <style>
+      body {
+        font-family: "Palatino Linotype", Palatino, serif;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 24pt;
+        margin-bottom: 1em;
+      }
+
+      h2 {
+        font-size: 16pt;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
+
+      p {
+        margin-bottom: 1em;
+        text-align: justify;
+      }
+
+      .byline {
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 2em;
+      }
+
+      @page {
+        size: A4;
+        margin: 1.5cm;
+
+        @bottom-center {
+          content: counter(page);
+          font-size: 10pt;
+        }
+      }
+
+      .content {
+        column-count: 2;
+        column-gap: 2em;
+        column-rule: 1px solid #ccc;
+        column-fill: auto;
+      }
+
+      .section-break {
+        break-before: column;
+        margin-top: 1em;
+      }
+
+      blockquote {
+        border-left: 3px solid #ccc;
+        padding-left: 1em;
+        margin-left: 0;
+        font-style: italic;
+        color: #333;
+      }
+
+      .footnote {
+        font-size: 9pt;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Future of Artificial Intelligence</h1>
+    <div class="byline">By Jamie Smith</div>
+    <div class="content">
+      <p>Artificial Intelligence (AI) has evolved dramatically over the past decade, transforming from a niche research field into a powerful technology that influences nearly every aspect of our daily lives. From virtual assistants that recognize our voices to recommendation systems that predict our preferences, AI technologies have become ubiquitous in modern society.</p>
+      <p>Recent advances in machine learning, particularly in deep learning and neural networks, have catapulted AI capabilities to new heights. These technologies now power everything from autonomous vehicles to medical diagnosis tools, demonstrating remarkable accuracy and efficiency in tasks that once required human expertise.</p>
+      <h2>Transformative Applications</h2>
+      <p>The healthcare industry stands to benefit enormously from AI integration. Machine learning algorithms can analyze medical images to detect early signs of disease, potentially saving countless lives through early intervention. AI-powered research tools are accelerating drug discovery by predicting molecular interactions and identifying promising compounds in a fraction of the time traditional methods require.</p>
+      <p>In education, personalized learning platforms are using AI to adapt to individual student needs, providing customized educational experiences that address specific strengths and weaknesses. This approach shows promise in improving educational outcomes across diverse student populations.</p>
+      <blockquote> "The question isn't whether AI will transform education, but how we will shape that transformation to benefit all learners." - Dr. Eliza Montgomery, Education Futurist </blockquote>
+      <p>The transportation sector is witnessing a revolution through autonomous driving technologies. Self-driving vehicles promise to reduce accidents, decrease traffic congestion, and provide mobility options for those unable to drive. While fully autonomous vehicles are still evolving, driver-assistance features powered by AI are already improving road safety.</p>
+      <div class="section-break"></div>
+      <h2>Ethical Considerations</h2>
+      <p>As AI systems grow more sophisticated and gain influence over critical decisions, ethical considerations become increasingly important. Questions about privacy, bias, accountability, and transparency demand careful attention from researchers, developers, and policymakers alike.</p>
+      <p>AI systems learn from data, and that data often reflects historical biases present in society. Without careful design and oversight, these systems can perpetuate or even amplify existing inequalities. Developing fair and unbiased AI requires diverse development teams and rigorous testing methodologies.</p>
+      <p>Privacy concerns also loom large as AI systems collect and analyze vast amounts of personal data. Striking the right balance between data utilization and privacy protection remains a significant challenge for the industry.</p>
+      <h2>Looking Forward</h2>
+      <p>A sprinter starts running on a circular path of radius r metres. Her average speed (in metres/minute) is $$\pi$$ r during the first 30 seconds, $$\pi$$ r/2 during next one minute, $$\pi$$ r/4 during next 2 minutes, $$\pi$$ r/8 during next 4 minutes, and so on. What is the ratio of the time taken for the nth round to that for the previous round? The coming decade will likely see even more transformative developments in AI. Quantum computing promises to dramatically increase computational power, potentially enabling AI systems to tackle problems currently beyond reach. Neuromorphic computing, which mimics the structure and function of the human brain, may lead to more efficient and capable AI architectures.</p>
+      <p>As these technologies advance, the relationship between humans and AI will continue to evolve. Rather than replacing human workers entirely, the most successful implementations will likely augment human capabilities, handling routine tasks while allowing people to focus on creative, empathetic, and strategic activities that remain uniquely human.</p>
+      <p>The future of AI is not predetermined. Through thoughtful development, appropriate regulation, and inclusive dialogue, we can shape these powerful technologies to benefit humanity while mitigating potential risks.</p>
+      <p class="footnote">This document demonstrates a two-column layout created using PagedJS, a JavaScript library for paginated content. The layout features balanced columns with A4 page size, a column rule, and pagination for print and screen formats.</p>
+    </div>
+    <script>
+        var katex_options = {
+            delimiters: [
+                {left: "$$$", right: "$$$", display: true},
+                {left: "$$", right: "$$", display: false}
+            ], ignoredClasses: ["no-mathjax"]
+        };
+        renderMathInElement(document.body, katex_options);
+    </script>
+  </body>
+</html>
