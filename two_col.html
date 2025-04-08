@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Two-Column Print Layout with Paged.js</title>
+    <link rel="stylesheet" href='https://cracku.in/static/assets/plugins/katex/katex.min.css'>
+    <script src='https://cracku.in/static/assets/plugins/katex/katex.min.js'></script>
+    <script src='https://cracku.in/static/assets/plugins/katex/contrib/auto-render.js'></script>
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/liberation-serif" rel="stylesheet">
+
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700";
+        @import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
+        @import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
+
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        /* Reset margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            counter-reset: page;
+        }
+
+        .pagedjs_page {
+            --width: 8.5in;
+            --height: 11in;
+        }
+
+        .page-content {
+            columns: 2;
+            column-gap: 0.5in;
+            column-fill: auto;
+            column-rule: 1px solid #ccc;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 18pt;
+            margin-bottom: 0.3in;
+            text-align: center;
+            column-span: all;
+            /* Makes the heading span across both columns */
+            break-after: avoid;
+        }
+
+        h2 {
+            font-size: 14pt;
+            margin-top: 0.2in;
+            margin-bottom: 0.1in;
+            break-after: avoid;
+        }
+
+        p {
+            margin-bottom: 0.1in;
+            text-align: justify;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0.2in;
+            right: 0.5in;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        .footer::after {
+            content: counter(page);
+            counter-increment: page;
+        }
+
+        /* Avoid breaks inside paragraphs near the end */
+        p {
+            break-inside: avoid-column;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page-content">
+        <p>
+            Sample 1: 'Corruption in India' (267 words)
+
+            "Power tends to corrupt, and absolute power corrupts absolutely."
+            It is not easy to define corruption. But in a narrow sense, corruption is mostly concerned with "bribery"
+            and it takes several forms. Corruption today is a world-wide phenomenon and India is one of the most corrupt
+            nations in the world.
+
+            Corruption is an indication of decadence. A corrupt person is termed immoral and dishonest. Only a person
+            with greatly eroded values indulges in corruption.
+
+            The problem with corruption is that it threatens the very existence of the society . Corruption is like a
+            leech draining the blood of the society. The worst part is that it affects every part of human life: the
+            flourishing black market in essential commodities, adulteration of even food, bribe, fraud and economic,
+            political and administrative manipulations etc have made the people feel greatly miserable and helpless.
+
+            We can trace corruption to ancient times. Kautilya, the author of the Arthasastra pointed out corruption of
+            his times. He also talked about the inevitability of corruption. He had said, "Just as it is impossible not
+            to taste the honey or the poison that finds itself at the tip of the tongue, so it is impossible for a
+            government servant not to eat up at least a bit of the king's revenue. These in the postwar world became
+            only bolder while eating up government money and accepting bribes.
+
+            Today, although India is free, the government officials have enslaved the general public with their
+            corruption. Most of them are hand in gloves with businessmen and thus the whole system is corrupt. What
+            starts at the top percolates down to the lowest rungs of the society. It has thus become widespread even in
+            villages.
+
+            The situation is so bad that it looks like India will never get rid of corruption.
+
+            Sample 2: 'Secular State' (261 words)
+
+            We all know that India is a secular State, and that a secular state has nothing to do with religion; but,
+            what exactly does this mean. Secularism, if properly implemented, can control extremism, religious bigotry
+            and other negative forces.
+
+            As said above, a secular state does not recognize any religion, which means a secular State, in essence,
+            should not discriminate against any a citizen belonging to any religion.
+
+            Earlier things were different; even a hundred years ago in India, people were discriminated against based on
+            religion, faith, caste, etc. There were many such undemocratic, non-secular things in existence. This led to
+            the persecution of people. The harrassed would leave their homeland, their country and suffer a lot. This
+            was also true of the world in general. Parsis, for instance, came to India from Iran.
+
+            Now, thankfully, that is a thing of the past. Due to great thinkers, philosophers and scholars, things have
+            changed. Politics and the government are being kept away from religion. These days almost all the civilized
+            countries are secular.
+
+            That does not mean religions are banned. Everyone has a right to follow whatever faith he or she wants. The
+            only thing is that, the government is neutral in this regard. This is because, if religious ceremonies are
+            encouraged openly, the government will come to be identified with a particular religion.India is a good
+            example in this regard. Though Hindus form a large majority, no Hindu festival is State sponsored.
+
+            Secularism in the State has, thus, extreme importance. A society tends to be equal, homogeneous and peaceful
+            with secularism.
+
+            Sample 3: How to control population explosion in India? (263 words)
+
+            As we all know, we Indians have the dubious distinction of being the second most populated country in the
+            world. And, very soon we will be ranked number one in terms of population. Well, that's not a cause for
+            celebration!
+
+            A large population is a liability and not an asset. In our country, population explosion is the main
+            obstacle to the development in all aspects. Since this problem is getting severe by the day, it is better to
+            take appropriate measures to keep it under control before it is too late.
+
+            Unlike what most people think, population is not an advantage in any manner. Demographic history of various
+            advanced countries shows that there is an inverse relationship between a country's overall happiness and the
+            countryÃ¢ï¿½ï¿½s birth rate. When per-capita income increases, people donÃ¢ï¿½ï¿½t desire more children in
+            order to supplement their income. In other words, with increase in per-capita income, people feel more
+            secure and do not want to depend on their children. Therefore, rapid economic development is very much
+            essential to control the already high birth rate. However, this increase in per-capita income will have its
+            positive impact on birth rate after a period of time.
+
+            In the Indian society we have joint family system. In joint families, in general a high birth rate is
+            encouraged. Hence this joint family has to be replaced by nucleur family. A nucleur family is generally
+            found in an urbanized and industrialized economies. Hence our efforts should be to industrialize and
+            urbanize our economy to reduce the high birth rate and thereby control the population growth.
+
+            Sample 4: 'Science in everyday life'
+
+            Science is a part of our everyday life. In its broadest meaning science means 'knowledge'. And, as
+            knowledge, it had entered life of even the most primitive human beings. They knew, in protein and
+            carbohydrate and containing vitamins. The result is a healthy prolonged life. One can imagine how life must
+            have been in pre-scientific days. Science has also improved clothing and made it more appropriate for
+            climatic and working conditions. Man-made fibers and versatile spinning machines, today enable us to dress
+            in clothes both comfortable and smart without being expensive.
+
+            We can't think of our everyday life without science. For instance, the safe from the poisonous berry. They
+            knew some rudimentary ideas about building a hut, sharpening a spear, and fishing in the river. This is what
+            is science which distinguishes man from the animals which rely on their instinct.
+
+            Yet, for most people 'science' means a number of abstract subjects such as physics, chemistry, biology and
+            mechanics, to quote a few, which have to be learnt as part of 'education', yet which seem to have little
+            bearing on everyday living. This is all wrong. Our way of life is completely dependent on science and its
+            inventions and discoveries surround us on all sides.
+
+            Since the Renaissance science has b in protein and carbohydrate and containing vitamins. The result is a
+            healthy prolonged life. One can imagine how life must have been in pre-scientific days. Science has also
+            improved clothing and made it more appropriate for climatic and working conditions. Man-mo the present.
+
+            Today, we have many consumer goods from the simple frying-pan to the and aeroplane, from the alarm-clock to
+            the laptop. All these things serve to make life easier and more pleasant. Science gives us safe food, free
+            of harmful germs, in hygienic tins. The result is a healthy prolonged life. One can imagine how life must
+            have been in pre-scientific days. Science has also improved clothing and made it more appropriate for
+            climatic and working conditions.
+
+            We can't think of our everyday life without science.
+
+            Sample 5: ' The world of entertainment'
+
+            Entertainment, something that provides amusement or enjoyment, is one of the basic needs of humans. Man has
+            needed and indulged in entertainment. Greek tragedy and comedy, Indian epic dramas, were an important
+            feature of ancient soceity, staged in impressive open-air theaters. Puppet shows of the East, even today,
+            can draw crowds of village spectators. Singing and dancing have been there since ages. This is how it has
+            been, and will always be in all the parts of the world.
+
+            'Entertainment' implies non-participation by the audience. A cricket match may be entertainment to the
+            spectators, but it is sport to the players. To be 'entertained', we must be content to look, and to
+            listen.dern entertainment is highly a organized business and has great variety. Especially in a big city
+            every conceivable form of entertainment can be had, the greatest of all being cinema and music, especially
+            to young people! There is a glamour and glitter about it all which makes it irresistible. The prominent
+            'stars', especially, the 'pop' stars, of today become the idols of the adolescents. The stars from Hollywood
+            and Bollywood can be taken as examples.
+            Beneath the glitter and the glamour, however, lies hardship and dissappointment for the majority. The
+            promoters, the managers and the impresarios are never poor men, and the entertainer becomes pathetically
+            dependent on them -- especially when his public image is fading. But despite all this, we still have the
+            professionals and always shall have entertainment. Because the world of entertainment has an eternal,
+            irresistible glamour. 'The show must go on !' That's the world of entertainment
+
+
+            Modern entertainment is highly a organized business and has great variety. Especially in a big city every
+            conceivable form of entertainment can be had, the greatest of all being cinema and music, especially to
+            young people! There is a glamour and glitter about it all which makes it irresistible. The prominent
+            'stars', especially, the 'pop' stars, of today become the idols of the adolescents. The stars from Hollywood
+            and Bollywood can be taken as examples.
+            Beneath the glitter and the glamour, however, lies hardship and dissappointment for the majority. The
+            promoters, the managers and the impresarios are never poor men, and the entertainer becomes pathetically
+            dependent on them -- especially when his public image is fading. But despite all this, we still have the
+            professionals and always shall have entertainment. Because the world of entertainment has an eternal,
+            irresistible glamour. 'The show must go on !' That's the world of entertainment.
+
+            Sample 6: ' Gateway to Prestigious Careers: The Role of Indian Government Competitive Exams'
+
+            Indian government competitive exams are an important part of the country's public sector recruitment
+            process. These tests, including the UPSC Civil Services, SSC CGL, and various state-level exams, lead to
+            prominent government employment. They evaluate candidates on a variety of criteria, including general
+            knowledge, aptitude, and specific area expertise. The rigorous selection procedure ensures that only the
+            most qualified people are picked to serve the public. These tests are extremely competitive, garnering
+            millions of candidates each year, demonstrating hopefuls' dedication to obtaining stable, respected
+            government jobs that contribute to India's government and growth.
+
+
+        </p>
+    </section>
+
+    <div class="footer">Page </div>
+    <script>
+        var katex_options = {
+            delimiters: [
+                { left: "$$$", right: "$$$", display: true },
+                { left: "$$", right: "$$", display: false }
+            ], ignoredClasses: ["no-mathjax"]
+        };
+        renderMathInElement(document.body, katex_options);
+        class pageNumbering extends Paged.Handler {
+            // this let us call the methods from the the chunker, the polisher and the caller for the rest of the script
+            constructor(chunker, polisher, caller) {
+                super(chunker, polisher, caller);
+            }
+
+            afterRendered(pages) {
+                console.log("afterRendered");
+                //   Before the content is parsed by Paged.js, please do the follwing:
+
+                // first, look for all the links <a> that are referencing a link started by http or www
+                pages.forEach((page, index) => {
+                    console.log(page);
+                    let footer = page.element.querySelector(".pagedjs_margin-bottom-center .pagedjs_margin-content");;
+                    if (footer) {
+                        footer.innerHTML = `${index + 37}`;
+                    }
+                });
+            }
+        }
+
+        // and we don’t forget to register the handler like this
+
+        Paged.registerHandlers(pageNumbering);
+    </script>
+</body>
+
+</html>
