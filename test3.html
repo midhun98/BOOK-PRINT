@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Column Document with PagedJS (A4)</title>
+    <link rel="stylesheet" href='https://cracku.in/static/assets/plugins/katex/katex.min.css'>
+    <script src='https://cracku.in/static/assets/plugins/katex/katex.min.js'></script>
+    <script src='https://cracku.in/static/assets/plugins/katex/contrib/auto-render.js'></script>
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/liberation-serif" rel="stylesheet">
+
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700";
+        @import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
+
+        /* Force fixed layout regardless of screen size */
+        html,
+        body {
+            width: 210mm;
+            /* A4 width */
+            height: 297mm;
+            /* A4 height */
+            overflow-x: hidden;
+            margin: 0 auto;
+            position: relative;
+            font-family: 'Liberation Serif', sans-serif !important;
+            font-size: 9.75pt;
+            line-height: 1.2;
+            padding: 0;
+        }
+
+        /* Prevent responsive behavior */
+        * {
+            max-width: none !important;
+            min-width: 0 !important;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 15pt;
+            margin-bottom: 1em;
+            text-align-last: center;
+            column-span: all;
+            border: 1pt solid black;
+            padding: 5pt;
+        }
+
+        h2 {
+            font-size: 16pt;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        @page {
+            size: A4;
+            margin-top: 15mm;
+            margin-bottom: 20mm;
+            margin-right: 25mm;
+            margin-left: 25mm;
+
+            @bottom-left {
+                font-weight: 500;
+                content: 'Quantitative Aptitude - LOD3';
+            }
+
+            @bottom-center {
+                font-weight: 500;
+                content: '';
+            }
+
+            @bottom-right {
+                font-weight: 500;
+                content: 'Time, Distance and Work';
+            }
+        }
+
+        @page :first {
+            margin-top: 12mm;
+        }
+
+        .new_page {
+            page-break-before: always;
+            column-count: 2;
+            column-gap: 35pt;
+            text-align: justify;
+            text-align-last: left;
+            column-fill: auto;
+        }
+
+        .explanations {
+            column-count: 2;
+            column-gap: 35pt;
+            text-align: justify;
+            text-align-last: left;
+            column-fill: auto;
+        }
+
+        .section-break {
+            break-before: column;
+            margin-top: 1em;
+        }
+
+        .footnote {
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .pagedjs_page_content {
+            padding-bottom: 10pt;
+            border-bottom: 1pt solid black;
+        }
+
+        input {
+            border: 1pt solid black;
+            margin: 2pt 0px;
+        }
+
+        .pagedjs_page {
+            background-size: 594pt 841pt;
+            /* Fixed dimensions for WYSIWYG regardless of screen size */
+            width: 210mm !important;
+            height: 297mm !important;
+        }
+
+        .options-box {
+            margin-left: 7pt;
+            font-family: 'Liberation Serif', sans-serif !important;
+        }
+
+        .options-box p {
+            margin: 0pt;
+        }
+
+        .options-box td {
+            vertical-align: top;
+        }
+
+        .options-box .row {
+            margin-bottom: 2pt;
+        }
+
+        .options-box.p-sm {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+        }
+
+        img.img-responsive {
+            max-width: 100%;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        .testing_break {
+            margin-left: -20pt;
+            page-break-inside: auto;
+        }
+
+        .answer-table-div {
+            border: 1pt solid green;
+            border-radius: 15pt;
+            padding-left: 10pt;
+        }
+
+        .answer-table {
+            width: 100%;
+            padding: 2pt;
+        }
+
+        .answer-break {
+            page-break-before: always;
+        }
+
+        .pagedjs_margin-bottom-left,
+        .pagedjs_margin-bottom-center,
+        .pagedjs_margin-bottom-right {
+            padding-bottom: 5mm;
+        }
+
+        .pagedjs_page .pagedjs_margin-bottom {
+            padding-bottom: 22.5pt;
+        }
+
+        /* Force fixed viewBox for paged.js */
+        .pagedjs_pages {
+            width: 210mm !important;
+            transform-origin: 0 0 !important;
+        }
+
+        /* Override any responsive behavior */
+        @media screen {
+            body {
+                width: 210mm;
+                margin: 0 auto;
+            }
+
+            .pagedjs_page {
+                margin: 0 auto;
+                border: 1px solid #ccc;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        /* Additional rules to prevent scaling */
+        * {
+            transform: none !important;
+            transform-origin: 0 0 !important;
+        }
+
+        /* Make sure columns don't collapse */
+        .new_page,
+        .explanations {
+            min-height: 200mm;
+        }
+
+        /* Question styling */
+        .question {
+            margin-bottom: 1.5em;
+        }
+
+        .question-number {
+            font-weight: bold;
+            display: inline-block;
+            width: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Quantitative Aptitude - Solved Paper (Time, Distance and Work)</h1>
+
+    <div class="new_page">
+        <!-- QUESTIONS SECTION -->
+        <div class="question">
+            <span class="question-number">1.</span> A train travels at an average speed of 50 km/h for 30 minutes, then
+            increases to 70 km/h for the next 45 minutes. What is the average speed of the train for the entire journey?
+
+            <div class="options-box">
+                <table>
+                    <tr class="row">
+                        <td width="20pt">A)</td>
+                        <td>60 km/h</td>
+                    </tr>
+                    <tr class="row">
+                        <td>B)</td>
+                        <td>62 km/h</td>
+                    </tr>
+                    <tr class="row">
+                        <td>C)</td>
+                        <td>58 km/h</td>
+                    </tr>
+                    <tr class="row">
+                        <td>D)</td>
+                        <td>65 km/h</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">2.</span> If a person can complete a job in 10 days and another person can
+            complete the same job in 15 days, how many days will it take for both persons working together to complete
+            the job?
+
+            <div class="options-box">
+                <table>
+                    <tr class="row">
+                        <td width="20pt">A)</td>
+                        <td>5 days</td>
+                    </tr>
+                    <tr class="row">
+                        <td>B)</td>
+                        <td>6 days</td>
+                    </tr>
+                    <tr class="row">
+                        <td>C)</td>
+                        <td>12 days</td>
+                    </tr>
+                    <tr class="row">
+                        <td>D)</td>
+                        <td>4 days</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">3.</span> Two trains are moving in opposite directions at speeds of 60 km/h
+            and 90 km/h respectively. If the length of each train is 250 meters, how long will it take for them to
+            completely pass each other?
+
+            <div class="options-box">
+                <table>
+                    <tr class="row">
+                        <td width="20pt">A)</td>
+                        <td>12 seconds</td>
+                    </tr>
+                    <tr class="row">
+                        <td>B)</td>
+                        <td>15 seconds</td>
+                    </tr>
+                    <tr class="row">
+                        <td>C)</td>
+                        <td>18 seconds</td>
+                    </tr>
+                    <tr class="row">
+                        <td>D)</td>
+                        <td>10 seconds</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">4.</span> A pipe can fill a tank in 6 hours. Due to a leak in the tank, it
+            takes 8 hours to fill the tank. If the tank is full, how much time will it take for the leak to empty the
+            tank?
+
+            <div class="options-box">
+                <table>
+                    <tr class="row">
+                        <td width="20pt">A)</td>
+                        <td>24 hours</td>
+                    </tr>
+                    <tr class="row">
+                        <td>B)</td>
+                        <td>48 hours</td>
+                    </tr>
+                    <tr class="row">
+                        <td>C)</td>
+                        <td>36 hours</td>
+                    </tr>
+                    <tr class="row">
+                        <td>D)</td>
+                        <td>30 hours</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-break"></div>
+
+        <div class="question">
+            <span class="question-number">5.</span> A man covers a certain distance at 10 km/h and returns at 15 km/h.
+            Find his average speed for the entire journey.
+
+            <div class="options-box">
+                <table>
+                    <tr class="row">
+                        <td width="20pt">A)</td>
+                        <td>12 km/h</td>
+                    </tr>
+                    <tr class="row">
+                        <td>B)</td>
+                        <td>12.5 km/h</td>
+                    </tr>
+                    <tr class="row">
+                        <td>C)</td>
+                        <td>11.5 km/h</td>
+                    </tr>
+                    <tr class="row">
+                        <td>D)</td>
+                        <td>12.25 km/h</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="question">
+            <span class="question-number">6.</span> If 5 men or 7 women can complete a piece of work in 37 days, how
+            many days will it take for 7 men and 6 women working together to complete the same work?
+
+            <div class="options-box">
+                <table>
+                    <tr class="row">
+                        <td width="20pt">A)</td>
+                        <td>10 days</td>
+                    </tr>
+                    <tr class="row">
+                        <td>B)</td>
+                        <td>12 days</td>
+                    </tr>
+                    <tr class="row">
+                        <td>C)</td>
+                        <td>15 days</td>
+                    </tr>
+                    <tr class="row">
+                        <td>D)</td>
+                        <td>9 days</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANSWERS SECTION -->
+    <div class="answer-break"></div>
+    <h1>Answer Key and Explanations</h1>
+
+    <div class="explanations">
+        <div class="question">
+            <span class="question-number">1.</span> <strong>Answer: B) 62 km/h</strong>
+            <p>
+                The train travels at 50 km/h for 30 minutes (0.5 hours) and 70 km/h for 45 minutes (0.75 hours).
+                <br>
+                Distance covered in first part = 50 × 0.5 = 25 km
+                <br>
+                Distance covered in second part = 70 × 0.75 = 52.5 km
+                <br>
+                Total distance = 25 + 52.5 = 77.5 km
+                <br>
+                Total time = 0.5 + 0.75 = 1.25 hours
+                <br>
+                Average speed = Total distance / Total time = 77.5 / 1.25 = 62 km/h
+            </p>
+        </div>
+
+        <div class="question">
+            <span class="question-number">2.</span> <strong>Answer: B) 6 days</strong>
+            <p>
+                First person's work rate = 1/10 job per day
+                <br>
+                Second person's work rate = 1/15 job per day
+                <br>
+                Combined work rate = 1/10 + 1/15 = (3+2)/30 = 5/30 = 1/6 job per day
+                <br>
+                Time to complete the job = 6 days
+            </p>
+        </div>
+
+        <div class="question">
+            <span class="question-number">3.</span> <strong>Answer: A) 12 seconds</strong>
+            <p>
+                Total length to cover = Sum of lengths of both trains = 250 + 250 = 500 meters
+                <br>
+                Relative speed = Sum of speeds of both trains = 60 + 90 = 150 km/h = 150 × (5/18) = 41.67 m/s
+                <br>
+                Time taken = Distance / Speed = 500 / 41.67 = 12 seconds
+            </p>
+        </div>
+
+        <div class="section-break"></div>
+
+        <div class="question">
+            <span class="question-number">4.</span> <strong>Answer: A) 24 hours</strong>
+            <p>
+                Rate of filling by pipe = 1/6 tank per hour
+                <br>
+                Rate of leakage = (1/6 - 1/8) = (4-3)/24 = 1/24 tank per hour
+                <br>
+                Time taken to empty the full tank = 1 ÷ (1/24) = 24 hours
+            </p>
+        </div>
+
+        <div class="question">
+            <span class="question-number">5.</span> <strong>Answer: A) 12 km/h</strong>
+            <p>
+                Let the distance be d km.
+                <br>
+                Time taken for onward journey = d/10 hours
+                <br>
+                Time taken for return journey = d/15 hours
+                <br>
+                Total time = d/10 + d/15 = (3d + 2d)/30 = 5d/30 = d/6 hours
+                <br>
+                Total distance = 2d km
+                <br>
+                Average speed = Total distance / Total time = 2d / (d/6) = 12 km/h
+            </p>
+        </div>
+
+        <div class="question">
+            <span class="question-number">6.</span> <strong>Answer: A) 10 days</strong>
+            <p>
+                Work done by 1 man in 1 day = 1/(5 × 37) = 1/185
+                <br>
+                Work done by 1 woman in 1 day = 1/(7 × 37) = 1/259
+                <br>
+                Work done by 7 men in 1 day = 7 × 1/185 = 7/185
+                <br>
+                Work done by 6 women in 1 day = 6 × 1/259 = 6/259
+                <br>
+                Work done by 7 men and 6 women in 1 day = 7/185 + 6/259 ≈ 1/10
+                <br>
+                Time taken to complete the work = 10 days
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var katex_options = {
+                delimiters: [
+                    { left: "$$$", right: "$$$", display: true },
+                    { left: "$$", right: "$$", display: false }
+                ], ignoredClasses: ["no-mathjax"]
+            };
+            renderMathInElement(document.body, katex_options);
+
+            // Disable any zooming/scaling that might affect the fixed layout
+            document.addEventListener('gesturestart', function (e) {
+                e.preventDefault();
+            });
+
+            // Ensure Paged.js doesn't apply responsive scaling
+            window.PagedConfig = {
+                auto: true,
+                after: () => {
+                    document.querySelectorAll('.pagedjs_page').forEach(page => {
+                        page.style.transform = 'none';
+                        page.style.width = '210mm';
+                        page.style.height = '297mm';
+                    });
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>
