@@ -89,6 +89,20 @@
             break-after: avoid;
         }
 
+        input {
+            border: 1pt solid black;
+            margin: 2pt 0pt;
+            /* Changed px to pt for consistency */
+            box-sizing: border-box;
+            /* This makes border part of the element's dimensions */
+            padding: 0pt;
+            /* Explicitly set padding */
+            position: relative;
+            /* Helps with positioning stability */
+            height: auto;
+            /* Let height be determined by content */
+        }
+
         p {
             margin-bottom: 0.1in;
             text-align: justify;
@@ -119,6 +133,57 @@
         .pagedjs_page .pagedjs_margin-bottom {
             padding-bottom: 22.5pt;
         }
+
+        .testing_break {
+            margin-left: -20pt;
+            page-break-inside: auto;
+        }
+
+        .options-box {
+            margin-left: 7pt;
+            font-family: 'Liberation Serif', serif !important;
+        }
+
+        /* Ensure table layout is predictable */
+        .options-box table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Prevent spacing/zoom issues */
+        .options-box td {
+            vertical-align: top;
+            font-family: 'Liberation Serif', serif;
+            font-size: 11pt;
+        }
+
+        /* Label column styling */
+        .options-box td:first-child {
+            width: 24pt;
+            /* fixed width for label (A/B/C) column */
+            white-space: nowrap;
+            padding-right: 5pt;
+        }
+
+        /* Option text consistency */
+        .options-box p {
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Maintain spacing between options */
+        .options-box .row {
+            margin-bottom: 2pt;
+            display: table;
+            width: 100%;
+        }
+
+        /* Remove extra padding */
+        .options-box.p-sm {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+        }
     </style>
 </head>
 
@@ -126,6 +191,82 @@
     <section class="new_page">
         <h1>Time, Distance and Work</h1>
 
+        <div class="">
+            <div class="testing_break">
+                <div class="qtn-table">
+                    <a href="/question/view/4096" style="text-decoration: none; color: black">
+                        <ol start="1">
+                            <li class="cc-qn-text">
+                                <p>Rahim plans to drive from city A to station C</p>
+                            </li>
+                        </ol>
+                    </a>
+                </div>
+                <p class="option-pdf" style="margin-top: 7.5pt;"></p>
+            </div>
+            <div id="options1" class="options-box p-sm  cc-qn-options" data-answer=2 data-qid=4096>
+                <div class="row option-pdf" style="page-break-inside:avoid">
+                    <table>
+                        <tr>
+                            <td>
+                                <b>A</b>
+                            </td>
+                            <td>
+                                <p>6 : 15 am</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row option-pdf" style="page-break-inside:avoid">
+                    <table>
+                        <tr>
+                            <td>
+                                <b>B</b>
+                            </td>
+                            <td>
+                                <p>6 : 30 am</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row option-pdf" style="page-break-inside:avoid">
+                    <table>
+                        <tr>
+                            <td>
+                                <b>C</b>
+                            </td>
+                            <td>
+                                <p>6 :45 am</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row option-pdf" style="page-break-inside:avoid">
+                    <table>
+                        <tr>
+                            <td>
+                                <b>D</b>
+                            </td>
+                            <td>
+                                <p>7 : 00 am</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row option-pdf" style="page-break-inside:avoid">
+                    <table>
+                        <tr>
+                            <td>
+                                <b>E</b>
+                            </td>
+                            <td>
+                                <p>7 : 15 am</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
         <p>
             Sample 1: 'Corruption in India' (267 words)
 
@@ -278,8 +419,6 @@
             government jobs that contribute to India's government and growth.
 
 
-        </p>
-        <p>
             We asked dozens of experts on essay writing and test scores for their take on what makes a great college
             essay. Check out five of our favorite college essay tips below.
 
@@ -395,9 +534,8 @@
             effects, but try to keep that to about a third—what your reader is generally more interested in is what you
             did about that challenge and what you learned/how you’ve grown. For a more complete guide to using Narrative
             Structure to shape your personal statement, check out that link.
-
-
         </p>
+
     </section>
 
     <script>
