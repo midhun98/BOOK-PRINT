@@ -78,16 +78,25 @@
             column-gap: 0.5in;
             column-fill: auto;
             width: 100%;
+            text-align: justify;
+
             /* Let Paged.js handle this properly */
         }
 
 
-        h2 {
+        /* h2 {
             font-size: 14pt;
             margin-top: 0.2in;
             margin-bottom: 0.1in;
             break-after: avoid;
+        } */
+        h2 {
+            font-size: 16pt;
+            margin-top: 0.2in;
+            margin-bottom: 0.1in;
+            text-align: center;
         }
+
 
         input {
             border: 1pt solid black;
@@ -139,45 +148,48 @@
             page-break-inside: auto;
         }
 
-        .question{
+        .question {
             display: flex;
             align-items: flex-start;
 
         }
 
-        .question .question-no{
+        .question .question-no {
             width: 8pt;
-            text-align:right;
+            text-align: right;
             font-weight: bold;
         }
 
-        .question .question-text{
-            flex-basis: 100%    
+        .question .question-text {
+            flex-basis: 100%
         }
 
-        .question .question-text:first-child{
-           margin-left: 2pt;  
+        .question .question-text:first-child {
+            margin-left: 2pt;
         }
 
-        .question .question-text p:first-child{
+        .question .question-text p:first-child {
             margin-top: 0pt;
         }
 
-        .option{
+        .option {
             margin-left: 2pt;
             display: flex;
             align-items: flex-start;
             gap: 8pt;
         }
-        .option .option-no{
+
+        .option .option-no {
             min-width: 1pt;
             text-align: right;
             font-weight: bold;
         }
-        .option-text p{
+
+        .option-text p {
             margin-top: 0pt;
             margin-bottom: 5pt;
         }
+
         .option input {
             border: 1pt solid black;
             margin-bottom: 5pt;
@@ -227,6 +239,21 @@
         .options-box.p-sm {
             padding-top: 0pt;
             padding-bottom: 0pt;
+        }
+
+        .answer-break {
+            page-break-before: always;
+        }
+
+        .answer-table-div {
+            border: 1pt solid green;
+            border-radius: 15pt;
+            padding-left: 10pt;
+        }
+        
+        .answer-table {
+            width: 100%;
+            padding: 2pt;
         }
     </style>
 </head>
@@ -949,6 +976,51 @@
         </p>
 
     </section>
+
+    <h2 class="answer-break" style="margin-top: 1.5pt">Answers</h2>
+    <div class="answer-table-div pdf">
+        <table class="answer-table">
+            <tr>
+                <td class="answer-cell"> 1. <b>B</b></td>
+                <td class="answer-cell"> 2. <b>C</b></td>
+                <td class="answer-cell"> 3. <b>D</b></td>
+                <td class="answer-cell"> 4. <b>C</b></td>
+                <td class="answer-cell"> 5. <b>D</b></td>
+                <td class="answer-cell"> 6. <b>C</b></td>
+                <td class="answer-cell"> 7. <b>D</b></td>
+                <td class="answer-cell"> 8. <b>D</b></td>
+            </tr>
+            <tr>
+                <td class="answer-cell"> 9. <b>C</b></td>
+                <td class="answer-cell"> 10. <b>B</b></td>
+                <td class="answer-cell"> 11. <b>1900</b></td>
+                <td class="answer-cell"> 12. <b>15</b></td>
+                <td class="answer-cell"> 13. <b>10</b></td>
+                <td class="answer-cell"> 14. <b>C</b></td>
+                <td class="answer-cell"> 15. <b>5</b></td>
+                <td class="answer-cell"> 16. <b>48</b></td>
+            </tr>
+            <tr>
+                <td class="answer-cell"> 17. <b>C</b></td>
+                <td class="answer-cell"> 18. <b>4</b></td>
+                <td class="answer-cell"> 19. <b>B</b></td>
+                <td class="answer-cell"> 20. <b>8</b></td>
+                <td class="answer-cell"> 21. <b>6</b></td>
+                <td class="answer-cell"> 22. <b>B</b></td>
+                <td class="answer-cell"> 23. <b>D</b></td>
+                <td class="answer-cell"> 24. <b>27</b></td>
+            </tr>
+            <tr>
+                <td class="answer-cell"> 25. <b>D</b></td>
+                <td class="answer-cell"> 26. <b>D</b></td>
+                <td class="answer-cell"> 27. <b>A</b></td>
+                <td class="answer-cell"> 28. <b>139</b></td>
+                <td class="answer-cell"> 29. <b>6</b></td>
+                <td class="answer-cell"> 30. <b>D</b></td>
+            </tr>
+        </table>
+
+    </div>
 
     <script>
         var katex_options = {
