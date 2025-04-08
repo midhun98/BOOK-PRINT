@@ -16,43 +16,64 @@
         @import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
 
         @page {
-            size: letter;
+            size: A4;
             margin: 0.5in;
+            margin-top: 15mm;
+            margin-bottom: 20mm;
+
+            @bottom-left {
+                font-weight: 500;
+                content: 'Quantitative Aptitude - LOD3';
+            }
+
+            @bottom-center {
+                font-weight: 500;
+                content: '';
+            }
+
+            @bottom-right {
+                font-weight: 500;
+                content: 'Time, Distance and Work';
+            }
+
         }
 
         /* Reset margins and paddings */
-        * {
+        /* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        } */
 
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.5;
-            color: #333;
-            counter-reset: page;
+            font-family: 'Liberation Serif', sans-serif !important;
+            font-size: 9.75pt;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
         }
 
-        .pagedjs_page {
+        /* .pagedjs_page {
             --width: 8.5in;
             --height: 11in;
-        }
+        } */
 
-        .page-content {
+        .new_page {
             columns: 2;
             column-gap: 0.5in;
             column-fill: auto;
-            column-rule: 1px solid #ccc;
             height: 100%;
+            page-break-before: always;
+
         }
 
         h1 {
-            font-size: 18pt;
+            font-size: 15pt;
             margin-bottom: 0.3in;
             text-align: center;
             column-span: all;
-            /* Makes the heading span across both columns */
+            border: 1pt solid black;
+            padding: 5pt;
             break-after: avoid;
         }
 
@@ -67,20 +88,6 @@
             margin-bottom: 0.1in;
             text-align: justify;
         }
-
-        .footer {
-            position: absolute;
-            bottom: 0.2in;
-            right: 0.5in;
-            font-size: 10pt;
-            color: #666;
-        }
-
-        .footer::after {
-            content: counter(page);
-            counter-increment: page;
-        }
-
         /* Avoid breaks inside paragraphs near the end */
         p {
             break-inside: avoid-column;
@@ -89,7 +96,9 @@
 </head>
 
 <body>
-    <section class="page-content">
+    <section class="new_page">
+        <h1>Time, Distance and Work</h1>
+
         <p>
             Sample 1: 'Corruption in India' (267 words)
 
@@ -243,9 +252,127 @@
 
 
         </p>
+        <p>
+            We asked dozens of experts on essay writing and test scores for their take on what makes a great college
+            essay. Check out five of our favorite college essay tips below.
+
+            1. Imagine how the person reading your essay will feel.
+
+            No one's idea of a good time is writing a college essay, I know. But if sitting down to write your essay
+            feels like a chore, and you're bored by what you're saying, you can imagine how the person reading your
+            essay will feel. On the other hand, if you're writing about something you love, something that excites you,
+            something that you've thought deeply about, chances are I'm going to set down your application feeling
+            excited, too—and feeling like I've gotten to know you.
+
+            This college essay tip is by Abigail McFee, Admissions Counselor for Tufts University and Tufts ‘17
+            graduate.
+
+            2. Write like a journalist.
+
+            "Don't bury the lede!" The first few sentences must capture the reader's attention, provide a gist of the
+            story, and give a sense of where the essay is heading. Think about any article you've read—how do you decide
+            to read it? You read the first few sentences and then decide. The same goes for college essays. A strong
+            lede (journalist parlance for "lead") will place your reader in the "accept" mindset from the beginning of
+            the essay. A weak lede will have your reader thinking "reject"—a mindset from which it's nearly impossible
+            to recover.
+
+            This college essay tip is by Brad Schiller, MIT graduate and CEO of Prompt, which provides individualized
+            feedback on thousands of students’ essays each year.
+
+            3. Don't read the Common Application prompts.
+
+            If you already have, erase them from memory and write the story you want colleges to hear. The truth is,
+            admission reviewers rarely know—or care—which prompt you are responding to. They are curious to discover
+            what you choose to show them about who you are, what you value, and why. Even the most fluid writers are
+            often stifled by fitting their narrative neatly into a category and the essay quickly loses authentic voice.
+            Write freely and choose a prompt later. Spoiler alert...one prompt is "Share an essay on any topic of your
+            choice. It can be one you've already written, one that responds to a different prompt, or one of your own
+            design. " So have at it.
+
+            This college essay tip is by Brennan Barnard, director of college counseling at the Derryfield School in
+            Manchester, N.H. and contributor to the NYT, HuffPost, and Forbes on intentionally approaching college
+            admissions.
+
+            4. Show your emotions.
+
+            Adding feelings to your essays can be much more powerful than just listing your achievements. It allows
+            reviewers to connect with you and understand your personality and what drives you. In particular, be open to
+            showing vulnerability. Nobody expects you to be perfect and acknowledging times in which you have felt
+            nervous or scared shows maturity and self-awareness.
+
+            This college essay tip is by Charles Maynard, Oxford and Stanford University Graduate and founder of Going
+            Merry, which is a one-stop shop for applying to college scholarships
+
+            5. Revise often and early.
+
+            Your admissions essay should go through several stages of revision. And by revisions, we don’t mean quick
+            proofreads. Ask your parents, teachers, high school counselors or friends for their eyes and edits. It
+            should be people who know you best and want you to succeed. Take their constructive criticism in the spirit
+            for which they intend—your benefit.
+
+            This college essay tip is by Dhivya Arumugham, Kaplan Test Prep's director of SAT and ACT programs.
+
+            Personal Statement Examples
+            The "Burying Grandma" Example College Essay
+            Written for the Common App college application essays "Tell us your story" prompt. This essay could work for
+            prompts 1 and 7 for the Common App.
+
+            They covered the precious mahogany coffin with a brown amalgam of rocks, decomposed organisms, and weeds. It
+            was my turn to take the shovel, but I felt too ashamed to dutifully send her off when I had not properly
+            said goodbye. I refused to throw dirt on her. I refused to let go of my grandmother, to accept a death I had
+            not seen coming, to believe that an illness could not only interrupt, but steal a beloved life.
+
+            When my parents finally revealed to me that my grandmother had been battling liver cancer, I was twelve and
+            I was angry--mostly with myself. They had wanted to protect me--only six years old at the time--from the
+            complex and morose concept of death. However, when the end inevitably arrived, I wasn’t trying to comprehend
+            what dying was; I was trying to understand how I had been able to abandon my sick grandmother in favor of
+            playing with friends and watching TV. Hurt that my parents had deceived me and resentful of my own oblivion,
+            I committed myself to preventing such blindness from resurfacing.
+
+            I became desperately devoted to my education because I saw knowledge as the key to freeing myself from the
+            chains of ignorance. While learning about cancer in school I promised myself that I would memorize every
+            fact and absorb every detail in textbooks and online medical journals. And as I began to consider my future,
+            I realized that what I learned in school would allow me to silence that which had silenced my grandmother.
+            However, I was focused not with learning itself, but with good grades and high test scores. I started to
+            believe that academic perfection would be the only way to redeem myself in her eyes--to make up for what I
+            had not done as a granddaughter.
+
+            However, a simple walk on a hiking trail behind my house made me open my own eyes to the truth. Over the
+            years, everything--even honoring my grandmother--had become second to school and grades. As my shoes humbly
+            tapped against the Earth, the towering trees blackened by the forest fire a few years ago, the faintly
+            colorful pebbles embedded in the sidewalk, and the wispy white clouds hanging in the sky reminded me of my
+            small though nonetheless significant part in a larger whole that is humankind and this Earth. Before I could
+            resolve my guilt, I had to broaden my perspective of the world as well as my responsibilities to my fellow
+            humans.
+
+            Volunteering at a cancer treatment center has helped me discover my path. When I see patients trapped in not
+            only the hospital but also a moment in time by their diseases, I talk to them. For six hours a day, three
+            times a week, Ivana is surrounded by IV stands, empty walls, and busy nurses that quietly yet constantly
+            remind her of her breast cancer. Her face is pale and tired, yet kind--not unlike my grandmother’s. I need
+            only to smile and say hello to see her brighten up as life returns to her face. Upon our first meeting, she
+            opened up about her two sons, her hometown, and her knitting group--no mention of her disease. Without even
+            standing up, the three of us—Ivana, me, and my grandmother--had taken a walk together.
+
+            Cancer, as powerful and invincible as it may seem, is a mere fraction of a person’s life. It’s easy to
+            forget when one’s mind and body are so weak and vulnerable. I want to be there as an oncologist to remind
+            them to take a walk once in a while, to remember that there’s so much more to life than a disease. While I
+            physically treat their cancer, I want to lend patients emotional support and mental strength to escape the
+            interruption and continue living. Through my work, I can accept the shovel without burying my grandmother’s
+            memory.
+
+            Tips + Analysis:
+
+            Make (Narrative) structure work for you. This essay uses what we call Narrative Structure, which focuses (in
+            roughly equal word count) on a challenge + effects you’ve faced, what you did about it, and what you
+            learned. Quick tip: one common and easy mistake is to spend most of the essay focused on the challenges +
+            effects, but try to keep that to about a third—what your reader is generally more interested in is what you
+            did about that challenge and what you learned/how you’ve grown. For a more complete guide to using Narrative
+            Structure to shape your personal statement, check out that link.
+
+
+        </p>
     </section>
 
-    <div class="footer">Page </div>
     <script>
         var katex_options = {
             delimiters: [
