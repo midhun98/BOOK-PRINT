@@ -15,11 +15,31 @@
         @import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
         @import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
 
+        body {
+            font-family: 'Liberation Serif', sans-serif !important;
+            font-size: 9.75pt;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 15pt;
+            margin-bottom: 0.3in;
+            text-align: center;
+            column-span: all;
+            border: 1pt solid black;
+            padding: 5pt;
+            break-after: avoid;
+        }
+
         @page {
             size: A4;
-            margin: 0.5in;
+            /* margin: 0.5in; */
             margin-top: 15mm;
             margin-bottom: 20mm;
+            margin-right: 25mm;
+            margin-left: 25mm;
 
             @bottom-left {
                 font-weight: 500;
@@ -38,12 +58,8 @@
 
         }
 
-        body {
-            font-family: 'Liberation Serif', sans-serif !important;
-            font-size: 9.75pt;
-            line-height: 1.2;
-            margin: 0;
-            padding: 0;
+        @page :first {
+            margin-top: 12mm;
         }
 
         .new_page {
@@ -52,19 +68,19 @@
             column-fill: auto;
             /* height: 100%; */
             page-break-before: always;
-            width: 100%; /* Let Paged.js handle this properly */
+            width: 100%;
+            /* Let Paged.js handle this properly */
 
         }
 
-        h1 {
-            font-size: 15pt;
-            margin-bottom: 0.3in;
-            text-align: center;
-            column-span: all;
-            border: 1pt solid black;
-            padding: 5pt;
-            break-after: avoid;
+        .explanations {
+            columns: 2;
+            column-gap: 0.5in;
+            column-fill: auto;
+            width: 100%;
+            /* Let Paged.js handle this properly */
         }
+
 
         h2 {
             font-size: 14pt;
@@ -76,6 +92,32 @@
         p {
             margin-bottom: 0.1in;
             text-align: justify;
+        }
+
+        .pagedjs_page {
+            background-image: url(https://cracku.in/media/uploads/A4%20Cross%20Logo%20Grey%20v1_qd8kiCn.png);
+            background-size: 594pt 841pt;
+
+        }
+
+        .pagedjs_page_content {
+            box-sizing: border-box;
+            position: relative;
+            height: calc(100% - 20pt);
+            /* Fixed height with space for footer */
+            border-bottom: 1pt solid black;
+            overflow: hidden;
+            /* Prevents content from flowing outside boundaries */
+        }
+
+        .pagedjs_margin-bottom-left,
+        .pagedjs_margin-bottom-center,
+        .pagedjs_margin-bottom-right {
+            padding-bottom: 5mm;
+        }
+
+        .pagedjs_page .pagedjs_margin-bottom {
+            padding-bottom: 22.5pt;
         }
     </style>
 </head>
