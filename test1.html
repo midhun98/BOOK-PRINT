@@ -10,21 +10,23 @@
 	<script src='https://cracku.in/static/assets/plugins/katex/contrib/auto-render.js'></script>
 	<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 	<link href="https://fonts.cdnfonts.com/css/liberation-serif" rel="stylesheet">
-	<style>
+
+    <style>
 		@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700";
 		@import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
 		@import "https://fonts.googleapis.com/css?family=Lato:400,300,500,700";
 
 		body {
 			font-family: 'Liberation Serif', sans-serif !important;
-			line-height: 1.5;
+			font-size: 9.75pt;
+			line-height: 1.2;
 			margin: 0;
 			padding: 0;
 		}
 
 		h1 {
 			text-align: center;
-			font-size: 24pt;
+			font-size: 15pt;
 			margin-bottom: 1em;
 			text-align-last: center;
 			column-span: all;
@@ -44,30 +46,45 @@
 			text-align: justify;
 		}
 
-		@page {
-			size: A4;
-			margin: 1.5cm;
 
 
-			@bottom-left {
-				font-weight: 500 !important;
-				content: 'Quantitative Aptitude - LOD 3' !important;
-			}
+        @page {
+            size: A4;
+            margin-top: 15mm;
+            margin-bottom: 20mm;
+            margin-right: 25mm;
+            margin-left: 25mm;
+            @bottom-left {
+                font-weight: 500;
+                content: 'Quantitative Aptitude - LOD3';
+            }
 
-			@bottom-center {
-				font-weight: 500 !important;
-				content: counter(page) !important;
-			}
+            @bottom-center {
+                font-weight: 500;
+                content: '';
+            }
 
-			@bottom-right {
-				font-weight: 500 !important;
-				content: 'Time, Distance and Work' !important;
-			}
-
-		}
+            @bottom-right {
+                font-weight: 500;
+                content: 'Time, Distance and Work';
+            }
+        }
+        @page :first {
+            margin-top: 12mm;
+        }
+		
 
 		.new_page {
 			page-break-before: always;
+			column-count: 2;
+			/* column-gap: 2em; */
+			/* column-rule: 1pt solid #ccc;  */
+			column-gap: 35pt;
+			text-align: justify;
+			text-align-last: left;
+			column-fill: auto;
+		}
+		.explanations {
 			column-count: 2;
 			/* column-gap: 2em; */
 			/* column-rule: 1pt solid #ccc;  */
@@ -82,13 +99,7 @@
 			margin-top: 1em;
 		}
 
-		blockquote {
-			border-left: 3pt solid #ccc;
-			padding-left: 1em;
-			margin-left: 0;
-			font-style: italic;
-			color: #333;
-		}
+		
 
 		.footnote {
 			font-size: 9pt;
@@ -98,7 +109,13 @@
 		.pagedjs_page_content {
 			padding-bottom: 10pt;
 			border-bottom: 1pt solid black;
-		}
+
+        }
+
+        input {
+                border: 1pt solid black;
+                margin: 2pt 0px;
+        }
 
 		/* Add some spacing between the line and the footer content */
 		/* .pagedjs_margin-bottom {
@@ -107,7 +124,8 @@
 
 		.pagedjs_page {
 			background-image: url(https://cracku.in/media/uploads/A4%20Cross%20Logo%20Grey%20v1_qd8kiCn.png);
-			background-size: 793px 1122px;
+            background-size: 594pt 841pt;
+
 		}
 
 		.options-box {
@@ -119,7 +137,6 @@
 		.options-box p {
 			margin: 0pt;
 		}
-
 		.options-box td {
 			vertical-align: top;
 		}
@@ -164,12 +181,15 @@
 		.answer-break {
 			page-break-before: always;
 		}
-		.explanations {
-			column-count: 2;
-			column-gap: 35pt;
-			text-align: justify;
-			text-align-last: left;
-		}
+        .pagedjs_margin-bottom-left,
+        .pagedjs_margin-bottom-center,
+        .pagedjs_margin-bottom-right {
+            padding-bottom: 5mm;
+        }
+
+        .pagedjs_page .pagedjs_margin-bottom {
+            padding-bottom: 22.5pt;
+        }
 
 	</style>
 </head>
